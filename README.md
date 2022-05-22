@@ -68,7 +68,7 @@ const char *pass =  "WIFI_PASS";
 ```
 Please note that if the network is out-of-range, there is currently no way of getting an indication of this. Make sure there is coverage before you install your sensor.
 
-###To-do list
+### To-do list
 - [ ] Defining error messages
 - [ ] Automatic determine of light_amount
 - [ ] Wait with interaction until network connection is achieved after being lost
