@@ -60,3 +60,19 @@ int light_on_current[] = {0,0};
 
 When adding more light_ids, make sure to make an entry for them in the other variables as well, otherwise errors will happen. This is something that should be improved in the future, but it is what it is for now.
 
+##Final requirements
+Make sure to enter the network SSID and password of the network your bridge is located on.
+```
+const char *ssid =  "SSID";  
+const char *pass =  "WIFI_PASS";
+```
+Please note that if the network is out-of-range, there is currently no way of getting an indication of this. Make sure there is coverage before you install your sensor.
+
+###To-do list
+- [ ] Defining error messages
+- [ ] Automatic determine of light_amount
+- [ ] Wait with interaction until network connection is achieved after being lost
+- [X] Designing a casing (bottom)
+- [ ] Printing the casing
+
+
