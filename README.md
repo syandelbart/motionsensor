@@ -12,3 +12,23 @@ There were different choices regarding the hardware that would be used. There we
 
 A **Raspberri PI** would've been way too overkill and expensive for such a simple application, so that wouldn't be necessary.
 An **Arduino** was great for this application. However, due to the fact that the site where I ordered the parts from didn't offer the models I needed, **I went for the ESP**. I ordered the NodeMCU V3 model with Wi-Fi and Bluetooth abilities for obvious reasons.
+
+## Interacting with Philips HUE
+### Creating a user
+To interact with the Philips HUE bridge, a user is needed. 
+For this you need to find the IP of the bridge on your local network, make sure to update the `HUE BRIDGE IP` variable in the code accordingly
+1. Navigate to `http://YOUR_BRIDGE_IP/debug/clip.html`
+2. POST **URL:** `\api` with **Message Body:** `{"devicetype":"my_hue_app#motionsensor"}` (Alternate names can be used for this)
+4. Press the physical bridge button 
+5. POST step 2 again
+This will return a username in JSON format similar to:
+```
+[
+    {
+        "success": {
+            "username": "OI31xM2PlF9LwRtKLN2t0cgh9hB4ve5AyN1RS8NM"
+        }
+    }
+]
+```
+This long string will be necessary for interacting with the bridge. Make sure to update the `HUE BRIDGE USER` variable in the code to the value of `username` in the above JSON text
