@@ -32,3 +32,31 @@ This will return a username in JSON format similar to:
 ]
 ```
 This long string will be necessary for interacting with the bridge. Make sure to update the `HUE BRIDGE USER` variable in the code to the value of `username` in the above JSON text
+
+### Getting information
+Getting information from the bridge is easy once the new user has been created.
+Generally you access and modify information through `http://YOUR_BRIDGE_IP/api/USERNAME/`. For a full documentation you can refer to the [Philips HUE API](https://developers.meethue.com/develop/hue-api-v2/api-reference/) site. For this application however, only the **lights** are important.
+
+Navigating to `http://YOUR_BRIDGE_IP/api/USERNAME/lights` will output all the lights registered to the bridge in JSON format. Since the output is not very readable, it might be useful to use a JSON formatter before trying to read this. In this data, all the light ids can be found along with their relevant data. Now all that has to happen is deciding which lights you want to interact with.
+
+### Making the code work
+After you have the ids of the lights you wish to interact with, you will have to change the code accordingly.
+```
+int light_ids[] = {};
+int light_amount = 0;
+
+bool light_states[] = {false,false};
+
+int light_on_times[] = {60,60}; //in seconds
+
+int light_on_current[] = {0,0};
+
+```
+- **light_ids**           all the lights you wish to interact with (comma-seperated)
+- **light_amount**        amount of lights you wish to control in total, will be automatic in future update
+- **light_states**        defaults to false, makes sure the lights won't turn on when they are already on to reduce overhead
+- **light_on_times**      the amount of seconds lights need to stay on individually after switching off again
+- **light_on_current**    default to 0, defines the amount of seconds the light has to stay on relative to the current time
+
+When adding more light_ids, make sure to make an entry for them in the other variables as well, otherwise errors will happen. This is something that should be improved in the future, but it is what it is for now.
+
