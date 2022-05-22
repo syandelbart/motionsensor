@@ -8,9 +8,9 @@
 
 WiFiClient wifiClient;
 
-#define PIR = 1;
-int Status = 2;
-int sensor = 13;
+//Defining pins; Status = Output (light signal on movement) ; sensor = motionsensor data pin
+#define Status = 2;
+#define sensor = 13;
 
 const char *ssid =  "SSID";  
 const char *pass =  "WIFI_PASS";
